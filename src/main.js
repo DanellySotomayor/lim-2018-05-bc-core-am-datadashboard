@@ -1,6 +1,7 @@
 const responseContainerEl = document.getElementById('container-user');
 const cohortSelect = document.getElementById('cohortSelect');
-let contentTable = document.getElementById('show-stats-and-order');
+const contentTable = document.getElementById('show-stats-and-order');
+const content = document.getElementById('content');
 const orderSelect = document.getElementById('orderSelect');
 const searchInput = document.getElementById('search-input');
 const showStatsLima = document.getElementById('lim');
@@ -11,7 +12,7 @@ let currentCohort;
 let users;
 let progress;
 let cohorts;
-let courses;
+
 
 //llamando a la data users y enlazandolo con progress
 const saveUsers = (event) => {
@@ -29,21 +30,20 @@ const saveCohorts = (event) => {
   
   //para listar los cohorts filtrados por "lim"
   cohorts.forEach((cohort) => {
-    nameCohorts = cohort.id;
+    let nameCohorts = cohort.id;
     if (nameCohorts.indexOf('lim') === 0){
       cohortSelect.innerHTML += `<option value="${nameCohorts}">${nameCohorts}</option>`
     }
   });
 
   //llamando al botón "lim" para cargar la lista de cohorts de Lima
-  showStatsLima.addEventListener('click', (e) => {
+  showStatsLima.addEventListener('click', () => {
     content.classList.add('loaded');
     });
     
   //sirve para mostrar la tabla con los stats
-  cohortSelect.addEventListener('change', (e) => { 
-    contentTable.classList.add('loaded');
-    const value = cohortSelect.options[cohortSelect.selectedIndex].value; 
+  cohortSelect.addEventListener('change', () => { 
+    contentTable.classList.add('loaded'); 
     currentCohort = cohorts.find((cohort) => {
       return cohort.id === 'lim-2018-03-pre-core-pw';
     });
@@ -79,7 +79,7 @@ const saveCohorts = (event) => {
     showData(searching);
   });
 //selector de ordenado ascedente y descendente
-  orderSelect.addEventListener('change', (e) => {  
+  orderSelect.addEventListener('change', () => {  
    const orderValue = orderSelect.options[orderSelect.selectedIndex].value;
     const orderArr = orderValue.split('|')
     const options = {
@@ -99,7 +99,7 @@ const handleError = () => {
 };
 
 //función general de llamado de data
-const getData = (url, callback, stringData) => {
+const getData = (url, callback) => {
 
   let requestData = new XMLHttpRequest();
   requestData.open('GET', url);

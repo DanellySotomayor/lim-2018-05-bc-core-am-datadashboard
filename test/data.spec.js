@@ -1,6 +1,5 @@
 describe('data', () => {
   let usersTest
-  let users
   let progress
   
   it('debería exponer función computeUsersStats en objeto global', () => {
@@ -218,7 +217,6 @@ describe('data', () => {
 
   describe('processCohortData({ cohortData, orderBy, orderDirection, filterBy })', () => {
     const cohort = fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
-    const courses = Object.keys(cohort.coursesIndex);
     const { users, progress } = fixtures;
 
     let options = {

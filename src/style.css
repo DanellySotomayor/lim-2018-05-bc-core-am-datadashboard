@@ -4,7 +4,8 @@
   outline: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   font-family: 'Bitter', serif;
 }
@@ -63,14 +64,13 @@ input[type=text] {
   padding: 12px;
   position: relative;
   background: #000000;
-  }
+}
 
 .sidebar ul ul {  
   width: 200px;
   opacity: 0;
   position: absolute;
   visibility: hidden;
-  
 }
 
 .sidebar ul li:hover > ul {
@@ -83,31 +83,34 @@ input[type=text] {
   list-style: none;
   text-decoration: none;
   padding: 10px 10px;
-  }
+}
 
 .sidebar ul li a:hover {
     background: #b623a2;
 } 
 
-.selectorStats {
+.selector-stats {
   float:right;
   width: 50%;
-  }
+}
 
-.show-stats-and-order, .show-stats-lima, .content {
+.show-stats-and-order,
+.show-stats-lima,
+.content {
   display: none;
 }
 
-.show-stats-and-order.loaded, .show-stats-lima.loaded, .content.loaded {
+.show-stats-and-order.loaded,
+.show-stats-lima.loaded,
+.content.loaded {
   display: block;
 }
 
 @media screen and (max-width: 400px) {
-    .logo-container  {
-      width: 100%;
-    }
-    form {
-      width: 180px;
-    }
-    
+  .logo-container {
+    width: 100%;
+  }
+  form {
+    width: 180px;
+  }
 }
